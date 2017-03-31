@@ -95,21 +95,27 @@
                         <div class="col-md-8">
                                 <form class="form-horizontal" action="" method="post">
                                       <div class="form-group">
-                                        <label for="user" class="col-sm-3 control-label">Usuario</label>
+                                        <label for="nom" class="col-sm-3 control-label">Nombre</label>
                                         <div class="col-sm-9">
-                                          <input type="email" class="form-control" id="user" placeholder="Usuario">
+                                          <input type="text" class="form-control" id="nom" placeholder="Nombre">
                                         </div>
                                       </div>
                                       <div class="form-group">
-                                        <label for="pass" class="col-sm-3 control-label">Contraseña</label>
+                                        <label for="ape" class="col-sm-3 control-label">Apellido</label>
                                         <div class="col-sm-9">
-                                          <input type="password" class="form-control" id="pass" placeholder="Contraseña">
+                                          <input type="text" class="form-control" id="ape" placeholder="Apellido">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="id" class="col-sm-3 control-label">ID</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" id="id" placeholder="Ingrese su numero de indentificación">
                                         </div>
                                       </div>
                                       
                                       <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                          <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+                                          <button type="submit" class="btn btn-success">Empezar a votar</button>
                                         </div>
                                       </div>
                             </form>
@@ -167,7 +173,7 @@
                
                
               @yield('section')
-               <!--peliculas----------->
+               <!--peliculas-->
                
                
            </section>
@@ -187,24 +193,15 @@
              <a href="#" class="list-group-item">Ciencia ficcion</a>
              
          </div>
-         <h4>Peliculas recientes</h4>
-         <div class="col-md-6">
-            <a href="#"> <img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div>
-         <div class="col-md-6">
-             <a href="#"><img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div><br>
-         <div class="col-md-6">
-             <a href="#"><img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div>
-         <div class="col-md-6">
-             <a href="#"><img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div><div class="col-md-6">
-            <a href="#"> <img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div>
-         <div class="col-md-6">
-            <a href="#"> <img src="img/12976609_947999625314889_1457381137_n.jpg" class="img-thumbnail" alt=""></a>
-         </div>
+         <h4>Calificadas recientemente</h4>
+         <a href="#" class="btn col-md-12 btn-success">Ver todas</a><br><br>
+         <div class="col-md-12">         
+          
+           @yield('aside')
+               <!--aside peliculas calificadas-->
+
+      </div>
+         
          
      </aside> 
        </div>
