@@ -10,6 +10,7 @@
 </head>
 <body>
   <header>
+    <!-- menu responsive...................... -->
     <nav class="navbar navbar-inverse navbar-static-top" >
         <div class="container">
            
@@ -31,10 +32,10 @@
                 <a href="#" class="navbar-brand"> RANK PELIS</a>
             </div>
             
-             <!-- inicia menu-->
+             <!-- inicia menu...................... -->
             <div class="collapse navbar-collapse" id="navegacion-fm">
       <ul class="nav navbar-nav">
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="{{url('/')}}">Inicio</a></li>
                     
                     <li class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -42,17 +43,17 @@
                             <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Todas</a></li>
+                            <li><a href="{{url('/')}}">Todas</a></li>
                              <li role="separator" class="divider"></li>
-                            <li><a href="#">Comedia</a></li>
-                            <li><a href="#">Terror</a></li>
-                            <li><a href="#">Acción</a></li>
-                            <li><a href="#">Aventura</a></li>
-                            <li><a href="#">Ciencia ficción</a></li>
+                            <li><a href="{{url('/comedia')}}">Comedia</a></li>
+                            <li><a href="{{url('/terror')}}">Terror</a></li>
+                            <li><a href="{{url('/accion')}}">Acción</a></li>
+                            <li><a href="{{url('/aventura')}}">Aventura</a></li>
+                            <li><a href="{{url('/ciencia_ficcion')}}">Ciencia ficción</a></li>
                           </ul>
                     </li>
                     
-                    <li><a href="#">Destacadas</a></li>
+                    <li><a href="{{url('/destacadas')}}">Destacadas</a></li>
                     <li><a href="#login" data-toggle="modal">Iniciar sesión</a></li>
                     
                     
@@ -60,7 +61,7 @@
       </ul>
                                                 
                                                
-                          <form class="navbar-form navbar-left">
+                        <form class="navbar-form navbar-left">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Buscar">
                             </div>
@@ -78,7 +79,7 @@
              </div> 
         </div>
     </nav>
-                              <!-- login-->
+                              <!-- registro........... -->
              <div class="modal fade" id="login">
          <div class="modal-dialog">
              <div class="modal-content">
@@ -134,7 +135,7 @@
          
      </div>
      
-     <!-- header-->
+     <!-- header ................ -->
      
      
   </header>
@@ -157,7 +158,7 @@
        </div>
       </div>
           
-          <!-- contenido-->
+          <!-- contenido............-->
           
   </section>
   
@@ -173,28 +174,28 @@
                
                
               @yield('section')
-               <!--peliculas-->
+               <!--peliculas.....................-->
                
                
            </section>
            
-           <!--aside-->
+           <!--aside.................... -->
            
             
            
            <aside class="col-md-3 hidden-xs hidden-sm">
          <h4>Categorias</h4>
          <div class="list-group">
-             <a href="#" class="list-group-item active">Todas</a>
-             <a href="#" class="list-group-item">Comedia</a>
-             <a href="#" class="list-group-item">Terror</a>
-             <a href="#" class="list-group-item">Acción</a>
-             <a href="#" class="list-group-item">Aventura</a>
-             <a href="#" class="list-group-item">Ciencia ficcion</a>
+             <a href="{{url('/')}}" class="list-group-item active">Todas</a>
+             <a href="{{url('/comedia')}}" class="list-group-item">Comedia</a>
+             <a href="{{url('/terror')}}" class="list-group-item">Terror</a>
+             <a href="{{url('/accion')}}" class="list-group-item">Acción</a>
+             <a href="{{url('/aventura')}}" class="list-group-item">Aventura</a>
+             <a href="{{url('/ciencia_ficcion')}}" class="list-group-item">Ciencia ficcion</a>
              
          </div>
          <h4>Calificadas recientemente</h4>
-         <a href="#" class="btn col-md-12 btn-success">Ver todas</a><br><br>
+         <a href="{{url('/ver_todas')}}" class="btn col-md-12 btn-success">Ver todas</a><br><br>
          <div class="col-md-12">         
           
            @yield('aside')
@@ -209,7 +210,7 @@
    </section>
      
     
-      
+      <!--ainicio footer ............... -->
       <footer>
           <div class="container">
               <div class="row">
@@ -218,8 +219,8 @@
                   </div>
                   <div class="col-xs-6">
                       <ul class="list-inline text-right">
-                          <li><a href="#">Inicio</a></li>
-                          <li><a href="#">Destacadas</a></li>
+                          <li><a href="{{url('/')}}">Inicio</a></li>
+                          <li><a href="{{url('/destacadas')}}">Destacadas</a></li>
                          
                       </ul>
                   </div>

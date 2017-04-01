@@ -11,22 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/destacadas', function () {
-    return view('destacadas');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Controller@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/destacadas', 'Controller@destacada');
+Route::get('/comedia', 'Controller@comedia');
+Route::get('/terror', 'Controller@terror');
+Route::get('/accion', 'Controller@accion');
+Route::get('/aventura', 'Controller@aventura');
+Route::get('/ciencia_ficcion', 'Controller@ciencia_ficcion');
+Route::get('/ver_todas', 'Controller@ver_todas');
