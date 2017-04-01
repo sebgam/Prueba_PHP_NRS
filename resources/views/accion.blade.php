@@ -6,6 +6,6 @@
 @section('section')
 
 
-
+@include('templates.Peliculas')
 
 @endsection    

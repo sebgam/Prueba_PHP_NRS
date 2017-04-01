@@ -14,7 +14,6 @@ class Controller extends BaseController
 public function index(){
 
 	$categorias = Categoria::all();
-	$contador =1;
 	return view('welcome')->with('categorias',$categorias);
 
 }
@@ -26,27 +25,29 @@ public function Destacada(){
 
 public function comedia(){
 
-	return view('comedia');
+	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Comedia')->get();
+	return view('comedia')->with('categorias',$categorias);
+
 }
 
 public function terror(){
-
-	return view('terror');
+	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Terror')->get();
+	return view('terror')->with('categorias',$categorias);
 }
 
 public function accion(){
-
-	return view('accion');
+	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Accion')->get();
+	return view('accion')->with('categorias',$categorias);
 }
 
 public function aventura(){
-
-	return view('aventura');
+	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Aventura')->get();
+	return view('aventura')->with('categorias',$categorias);
 }
 
 public function ciencia_ficcion(){
-
-	return view('ciencia_ficcion');
+	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Ciencia ficcion')->get();
+	return view('ciencia_ficcion')->with('categorias',$categorias);
 }
 
 public function ver_todas(){

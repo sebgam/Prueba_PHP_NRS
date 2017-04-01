@@ -70,7 +70,8 @@
                             </button>
                             
                         </form>  
-                        <li><a href="#">Cerrar Sesión</a></li>
+                        <li><a href="{{url('/cerrarSesion')}}">Cerrar Sesión</a></li>
+                        <li class="bieLi"><span class="bieSpan" ">Bienvenido {{session()->get('sesionCliente', 'inicia sesion')}}</span></li>
                           
 
      
@@ -94,23 +95,24 @@
                     </div>
                  
                         <div class="col-md-8">
-                                <form class="form-horizontal" action="" method="post">
+                                <form class="form-horizontal" action="/empezar_a_votar" method="post">
+                                {{csrf_field()}}
                                       <div class="form-group">
                                         <label for="nom" class="col-sm-3 control-label">Nombre</label>
                                         <div class="col-sm-9">
-                                          <input type="text" class="form-control" id="nom" placeholder="Nombre">
+                                          <input type="text" class="form-control" id="nom" name="nombre" placeholder="Nombre">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label for="ape" class="col-sm-3 control-label">Apellido</label>
                                         <div class="col-sm-9">
-                                          <input type="text" class="form-control" id="ape" placeholder="Apellido">
+                                          <input type="text" class="form-control" id="ape" name="apellido" placeholder="Apellido">
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label for="id" class="col-sm-3 control-label">ID</label>
                                         <div class="col-sm-9">
-                                          <input type="text" class="form-control" id="id" placeholder="Ingrese su numero de indentificación">
+                                          <input type="text" class="form-control" id="id" name="id_cliente" placeholder="Ingrese su numero de indentificación">
                                         </div>
                                       </div>
                                       

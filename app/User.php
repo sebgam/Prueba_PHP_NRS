@@ -8,5 +8,6 @@ class User extends Model
 {
     protected $table = "users";
     protected $filetable = ['id_cliente','nombre','apellido'];
+    protected $fillable = ['id_cliente','nombre','apellido'];
 
 }
