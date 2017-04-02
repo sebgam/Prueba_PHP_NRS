@@ -75,13 +75,13 @@
                           
 
      
- </div> 
+                </div> 
+            </div> 
+       </div>
+  </nav>
             
-             </div> 
-        </div>
-    </nav>
                               <!-- registro........... -->
-             <div class="modal fade" id="login">
+      <div class="modal fade" id="login">
          <div class="modal-dialog">
              <div class="modal-content">
                  <div class="modal-header">
@@ -121,21 +121,21 @@
                                           <button type="submit" class="btn btn-success">Empezar a votar</button>
                                         </div>
                                       </div>
-                            </form>
-                    </div>
+                                </form>
+                        </div>
+                     </div>
                  </div>
-                    
-                      </div>
-                 
                  <div class="modal-footer">
                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                     
                  </div>
+         </div>
+     </div>
+         
+                     
+                    
+                 
                  
             
-         </div>
-         
-     </div>
      
      <!-- header ................ -->
      

@@ -1,46 +1,55 @@
-<?php $contador = 1; ?>
+<?php  $contador = 1; 
+ Session::get('sesionCliente'); ?>
+
 
 @foreach($categorias as $categoria)
 
-   <?php $contador++; ?>
+   <?php $contador++; ?> 
 		
  		<div class="col-sm-6 col-xs-12 col-md-4">
-      <form action="" method="post" id="form<?php echo $contador ?>">
+      <form action="/calificar" method="post" id="form{{$contador}}">
+         {{csrf_field()}}
                <div class="thumbnail avatar view-team">
                <img src="{{ asset('img/peliculas/'. $categoria->imagen)}}" data-toggle="tooltip" title="{{$categoria->titulo}}">
                <div class="campiton">
                  <p class="clasificacion">
-                        <input id="radio10" type="radio" name="estrella" value="10">
-                        <label for="radio10">★</label>
-                        <input id="radio9" type="radio" name="estrellas" value="9">
-                        <label for="radio9">★</label>
-                        <input id="radio8" type="radio" name="estrellas" value="8">
-                        <label for="radio8">★</label>
-                        <input id="radio7" type="radio" name="estrellas" value="7">
-                        <label for="radio7">★</label>
-                        <input id="radio6" type="radio" name="estrellas" value="6">
-                        <label for="radio6">★</label>
-                        <input id="radio5" type="radio" name="estrellas" value="5">
-                        <label for="radio5">★</label>
-                        <input id="radio4" type="radio" name="estrellas" value="4">
-                        <label for="radio4">★</label>
-                        <input id="radio3" type="radio" name="estrellas" value="3">
-                        <label for="radio3">★</label>
-                        <input id="radio2" type="radio" name="estrellas" value="2">
-                        <label for="radio2">★</label>
-                        <input id="radio1" type="radio" name="estrellas" value="1">
-                        <label for="radio1">★</label>
+                        <input id="radio10{{$contador}}" type="radio" name="valoracion" value="10">
+                        <label for="radio10{{$contador}}">★</label>
+                        <input id="radio9{{$contador}}" type="radio" name="valoracion" value="9">
+                        <label for="radio9{{$contador}}">★</label>
+                        <input id="radio8{{$contador}}" type="radio" name="valoracion" value="8">
+                        <label for="radio8{{$contador}}">★</label>
+                        <input id="radio7{{$contador}}" type="radio" name="valoracion" value="7">
+                        <label for="radio7{{$contador}}">★</label>
+                        <input id="radio6{{$contador}}" type="radio" name="valoracion" value="6">
+                        <label for="radio6{{$contador}}">★</label>
+                        <input id="radio5{{$contador}}" type="radio" name="valoracion" value="5">
+                        <label for="radio5{{$contador}}">★</label>
+                        <input id="radio4{{$contador}}" type="radio" name="valoracion" value="4">
+                        <label for="radio4{{$contador}}">★</label>
+                        <input id="radio3{{$contador}}" type="radio" name="valoracion" value="3">
+                        <label for="radio3{{$contador}}">★</label>
+                        <input id="radio2{{$contador}}" type="radio" name="valoracion" value="2">
+                        <label for="radio2{{$contador}}">★</label>
+                        <input id="radio1{{$contador}}" type="radio" name="valoracion" value="1">
+                        <label for="radio1{{$contador}}">★</label>
                   </p>
-                                
+                      <input type="text" name="titulo" value="{{$categoria->titulo}}" style="display:none">          
                    <p></p>
                    <div class="row">
                       <div class="col-md-12">
                           <ul class="list-group">
                               <li class="list-group-item list-group-item-success">Calificaciones <span class="badge">0</span></li>
-                              <li class="list-group-item list-group-item-default">Tú calificacion <span class="badge">0</span></li>
+                              <li class="list-group-item list-group-item-default">Tú calificacion <span class="badge">2
+                                   
+                                
+                                       
+
+                                
+                              </span></li>
                               <li class="list-group-item list-group-item-danger">Calificación general <span class="badge">0</span></li>
                           </ul>
-                              <button class="btn btn-lg btn-block btn-success" type="submit">calificar</button>
+                              <button class="btn btn-lg btn-block btn-success" type="submit">Calificar</button>
                       </div>
                   </div>
                </div>    

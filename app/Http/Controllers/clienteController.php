@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
 
+
 class clienteController extends Controller
 {
     public function insert(Request $request){
 
     	if($_POST){
 
-    		$nombre = $_POST['nombre'];
+            $nombre = $_POST['nombre'];
+    		$id_cliente = $_POST['id_cliente'];
+
+            
+
 
     		session()->put('sesionCliente', $nombre);
 
@@ -29,6 +34,7 @@ class clienteController extends Controller
 public function cerrarSesion(){
 
 	session()->forget('sesionCliente');
+    
 
 
 	$inicio = new Controller;

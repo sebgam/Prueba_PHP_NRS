@@ -27,3 +27,6 @@ Route::get('/ver_todas', 'Controller@ver_todas');
 //--------rutas control y registrde usuarios-----------
 Route::post('/empezar_a_votar', 'clienteController@insert');
 Route::get('/cerrarSesion', 'clienteController@cerrarSesion');
+
+//---------rutas valoracion----------------
+Route::post('/calificar', 'valoracionController@calificar');

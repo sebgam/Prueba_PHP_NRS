@@ -7,9 +7,11 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Categoria;
+use App\Valoracion;
 
 class Controller extends BaseController
 {
+	 use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
 public function index(){
 
@@ -25,8 +27,10 @@ public function Destacada(){
 
 public function comedia(){
 
+	
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Comedia')->get();
 	return view('comedia')->with('categorias',$categorias);
+
 
 }
 

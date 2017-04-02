@@ -16,7 +16,7 @@ class AddValoracion extends Migration
         Schema::create('valoracion', function (Blueprint $table) {
             $table->string('titulo');
             $table->integer('valoracion');
-            $table->integer('id_cliente');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
