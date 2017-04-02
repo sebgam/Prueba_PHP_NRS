@@ -17,6 +17,7 @@ class AddValoracion extends Migration
             $table->string('titulo');
             $table->integer('valoracion');
             $table->string('nombre');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

@@ -1,11 +1,8 @@
 <?php  $contador = 1; 
  Session::get('sesionCliente'); ?>
-
-
 @foreach($categorias as $categoria)
-
    <?php $contador++; ?> 
-		
+   		
  		<div class="col-sm-6 col-xs-12 col-md-4">
       <form action="/calificar" method="post" id="form{{$contador}}">
          {{csrf_field()}}
@@ -35,19 +32,60 @@
                         <label for="radio1{{$contador}}">★</label>
                   </p>
                       <input type="text" name="titulo" value="{{$categoria->titulo}}" style="display:none">          
+                      <input type="text" name="imagen" value="{{$categoria->imagen}}" style="display:none">          
                    <p></p>
+
+                          <!-- ...............calificaciones...................... -->
+
                    <div class="row">
                       <div class="col-md-12">
                           <ul class="list-group">
-                              <li class="list-group-item list-group-item-success">Calificaciones <span class="badge">0</span></li>
-                              <li class="list-group-item list-group-item-default">Tú calificacion <span class="badge">2
-                                   
+                              <li class="list-group-item list-group-item-success">Calificaciones <span class="badge"><span class="glyphicon glyphicon-star-empty"></span>
                                 
-                                       
+                                <!--muestra el numero de veces que a sido calificada una pelicula...................... -->  
+                                
+                                <?php   $cont = 0; ?>
+                                @foreach($valoracion2 as $valoracionesTotal)
+                                  @if ($valoracionesTotal->titulo == $categoria->titulo)
+                                      <?php $cont++; ?>
+                                  @endif
 
-                                
+                                @endforeach
+                                  {{$cont}}
+                                  
+                                      
+
                               </span></li>
-                              <li class="list-group-item list-group-item-danger">Calificación general <span class="badge">0</span></li>
+                              <li class="list-group-item list-group-item-default">Tú calificacion <span name="tuCalificacion" class="badge"><span class="glyphicon glyphicon-star-empty"></span>
+                              <!--muestra mi calficacion...................... -->  
+                                @if(Session::get('sesionCliente'))
+                                @foreach($valoracion as $valoraciones)
+                                  @if ($valoraciones->titulo == $categoria->titulo)
+                                      {{$valoraciones->valoracion}}
+                                  @endif
+                                @endforeach
+                                @endif       
+                              </span></li>
+                              <li class="list-group-item list-group-item-danger">Calificación general <span class="badge"><span class="glyphicon glyphicon-star-empty"></span>
+                                <!--muestra promedio de calficacion...................... -->
+                                 
+                                <?php   $cont = 0; $suma = 0;?>
+                                @foreach($valoracion2 as $valoracionesTotal)
+                                  @if ($valoracionesTotal->titulo == $categoria->titulo)
+                                      <?php 
+                                          $valor = $valoracionesTotal->valoracion;
+                                          $suma = $suma + $valor;
+                                      $cont++; ?>
+                                  @endif
+                                @endforeach
+                                @if($suma>0)
+                                  <?php $promedio = $suma/$cont; ?>
+                                  {{round($promedio, 1, PHP_ROUND_HALF_UP)}}
+                                @else
+                                    0
+                                @endif 
+                                   
+                              </span></li>
                           </ul>
                               <button class="btn btn-lg btn-block btn-success" type="submit">Calificar</button>
                       </div>
@@ -58,3 +96,18 @@
       </div>
 
 @endforeach
+
+
+                
+
+                                  
+                                
+
+
+
+
+                                  
+
+
+
+

@@ -14,9 +14,10 @@ class Controller extends BaseController
 	 use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
 public function index(){
-
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = Categoria::all();
-	return view('welcome')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('welcome',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 
 }
 
@@ -27,36 +28,47 @@ public function Destacada(){
 
 public function comedia(){
 
-	
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Comedia')->get();
-	return view('comedia')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('comedia',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 
 
 }
 
 public function terror(){
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Terror')->get();
-	return view('terror')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('terror',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 }
 
 public function accion(){
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Accion')->get();
-	return view('accion')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('accion',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 }
 
 public function aventura(){
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Aventura')->get();
-	return view('aventura')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('aventura',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 }
 
 public function ciencia_ficcion(){
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
 	$categorias = \DB::table('categorias')->select('titulo', 'categoria','imagen')->where('categoria', '=', 'Ciencia ficcion')->get();
-	return view('ciencia_ficcion')->with('categorias',$categorias);
+	$valoracionTotal = Valoracion::all();
+	return view('ciencia_ficcion',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 }
 
 public function ver_todas(){
 
-	return view('ver_todas');
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion','imagen')->where('nombre', '=', session()->get('sesionCliente'))->get();
+	
+	return view('ver_todas')->with('valoracion',$valoracion);
 }
 
 

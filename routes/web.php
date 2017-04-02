@@ -30,3 +30,12 @@ Route::get('/cerrarSesion', 'clienteController@cerrarSesion');
 
 //---------rutas valoracion----------------
 Route::post('/calificar', 'valoracionController@calificar');
+Route::get('{titulo}/eliminar/', [
+	'as' => 'eliminar',
+	'uses' => 'valoracionController@eliminar'
+	]);
+Route::get('{titulo}/cambiar/', [
+	'as' => 'cambiar',
+	'uses' => 'valoracionController@cambiar'
+	]);
+
