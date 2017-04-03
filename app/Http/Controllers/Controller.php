@@ -9,14 +9,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Categoria;
 use App\Valoracion;
 
+
 class Controller extends BaseController
 {
 	 use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
 public function index(){
-	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();
-	$categorias = Categoria::all();
+	$valoracion = \DB::table('valoracion')->select('titulo','valoracion')->where('nombre', '=', session()->get('sesionCliente'))->get();	 
 	$valoracionTotal = Valoracion::all();
+	$categorias = \DB::table('categorias')->paginate(9);
 	return view('welcome',['categorias'=>$categorias,'valoracion'=>$valoracion,'valoracion2'=>$valoracionTotal]);
 
 }

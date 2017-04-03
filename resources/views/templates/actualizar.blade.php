@@ -1,9 +1,10 @@
 <?php  $contador = 1; 
  Session::get('sesionCliente'); ?>
 @foreach($categorias as $categoria)
- <?php $contador++; ?> 
+   <?php $contador++; ?> 
+   		
  		<div class="col-sm-6 col-xs-12 col-md-4">
-      <form action="/calificar" method="post" id="formP">
+      <form action="/actualizar" method="post" id="form{{$contador}}">
          {{csrf_field()}}
                <div class="thumbnail avatar view-team">
                <img src="{{ asset('img/peliculas/'. $categoria->imagen)}}" data-toggle="tooltip" title="{{$categoria->titulo}}">
@@ -79,43 +80,20 @@
                                 @endforeach
                                 @if($suma>0)
                                   <?php $promedio = $suma/$cont; ?>
-                                  {{round($promedio, 0, PHP_ROUND_HALF_UP)}}
+                                  {{round($promedio, 1, PHP_ROUND_HALF_UP)}}
                                 @else
                                     0
                                 @endif 
                                    
                               </span></li>
                           </ul>
-                          <!--mboton y su validacion...................... -->
-                              <button class="btn btn-lg btn-block btn-success" type="submit"
-
-                               @if(Session::get('sesionCliente'))
-                                @foreach($valoracion as $valoraciones)
-                                  @if ($valoraciones->titulo == $categoria->titulo)
-                                      disabled
-                                  @endif
-                                @endforeach
-                                @else
-                                disabled
-                                @endif   >Calificar</button>
+                              <button class="btn btn-lg btn-block btn-success" type="submit">Actualizar</button>
                       </div>
                   </div>
                </div>    
             </div>
         </form>
       </div>
-      
+
 @endforeach
-
-
-                                  
-                                
-
-
-
-
-                                  
-
-
-
 

@@ -7,6 +7,7 @@ use App\Valoracion;
 use App\Categoria;
 use App\Http\Controllers\Controller;
 
+
 class valoracionController extends Controller
 {
 
@@ -26,7 +27,6 @@ public function calificar(Request $request){
 	$valoracion->imagen = $_POST['imagen'];
 	$valoracion->save();
 
-	
 
 
     return back();
@@ -56,6 +56,30 @@ public function cambiar($titulo){
 
 
 }
+
+public function actualizar(Request $request){
+
+
+	$valoracion = new Valoracion;
+
+	$num = $_POST['valoracion'];;
+	$int = (int)$num;
+	
+
+	$valoracion->nombre = session()->get('sesionCliente');
+	$valoracion->valoracion = $int;
+	$valoracion->titulo = $_POST['titulo'];
+	$valoracion->imagen = $_POST['imagen'];
+	$valoracion->save();
+
+	
+	$inicio = new Controller;
+
+
+    return $inicio->ver_todas();
+
+}
+
 
 
 }

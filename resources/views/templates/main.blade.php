@@ -11,7 +11,7 @@
 <body>
   <header>
     <!-- menu responsive...................... -->
-    <nav class="navbar navbar-inverse navbar-static-top" >
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
         <div class="container">
            
                           
@@ -35,7 +35,7 @@
              <!-- inicia menu...................... -->
             <div class="collapse navbar-collapse" id="navegacion-fm">
       <ul class="nav navbar-nav">
-                    <li><a href="{{url('/')}}">Inicio</a></li>
+                    <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                     
                     <li class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -53,25 +53,19 @@
                           </ul>
                     </li>
                     
-                    <li><a href="{{url('/destacadas')}}">Destacadas</a></li>
-                    <li><a href="#login" data-toggle="modal">Iniciar sesión</a></li>
-                    
-                    
+                    <li><a href="{{url('/destacadas')}}"><span class="glyphicon glyphicon-tasks"></span> Destacadas</a></li>
+                    <li><a href="#login" data-toggle="modal"> <span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                    <li><a href="#" data-toggle="modal"></a></li>
+                    <li><a href="#" data-toggle="modal"></a></li>
+                    <li class="bieLi"><a href=""><span class="bieSpan" ">Bienvenid@ {{session()->get('sesionCliente', ' por favor inicia sesión')}}</a></span></li>
+                    <li><a href="{{url('/cerrarSesion')}}"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+                     
                     
       </ul>
                                                 
                                                
-                        <form class="navbar-form navbar-left">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Buscar">
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                            
-                        </form>  
-                        <li><a href="{{url('/cerrarSesion')}}">Cerrar Sesión</a></li>
-                        <li class="bieLi"><span class="bieSpan" ">Bienvenido {{session()->get('sesionCliente', 'inicia sesion')}}</span></li>
+                         
+                        
                           
 
      
@@ -95,7 +89,7 @@
                     </div>
                  
                         <div class="col-md-8">
-                                <form class="form-horizontal" action="/empezar_a_votar" method="post">
+                                <form class="form-horizontal" action="/empezar_a_votar" method="post" id="formRegistro">
                                 {{csrf_field()}}
                                       <div class="form-group">
                                         <label for="nom" class="col-sm-3 control-label">Nombre</label>
@@ -150,7 +144,7 @@
                       <img class="media-object hidden-xs hidden-sm" width="300" src="{{ asset('img/log.png')}}" alt="...">
                     </a>
                                   </div>
-                  <div class="media-body ">
+                  <div class="media-body "><br>
                     <h4 class="media-heading titulo-blog">Rank Pelis</h4>
                     <p>¡Califica tus peliculas favoritas rápidamente! Nuestros Ranking son los mas populares de la web</p>
                     <img class="img-responsive bannerImg" src="{{ asset('img/ban.png')}}" alt="">
@@ -169,7 +163,8 @@
            <section class="posts col-md-9" >
                <div class="migas-de-pan">
                    <ol class="breadcrumb">
-                       <li class="active">inicio</li>
+                       
+                   @yield('migas')
                        
                    </ol>
                </div>
@@ -189,19 +184,18 @@
          <h4>Categorias</h4>
          <div class="list-group">
              <a href="{{url('/')}}" class="list-group-item active">Todas</a>
-             <a href="{{url('/comedia')}}" class="list-group-item">Comedia</a>
-             <a href="{{url('/terror')}}" class="list-group-item">Terror</a>
-             <a href="{{url('/accion')}}" class="list-group-item">Acción</a>
-             <a href="{{url('/aventura')}}" class="list-group-item">Aventura</a>
-             <a href="{{url('/ciencia_ficcion')}}" class="list-group-item">Ciencia ficcion</a>
+             <a href="{{url('/comedia')}}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> Comedia</a>
+             <a href="{{url('/terror')}}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> Terror</a>
+             <a href="{{url('/accion')}}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> Acción</a>
+             <a href="{{url('/aventura')}}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> Aventura</a>
+             <a href="{{url('/ciencia_ficcion')}}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> Ciencia ficcion</a>
              
          </div>
          <h4>Calificadas recientemente</h4>
          <a href="{{url('/ver_todas')}}" class="btn col-md-12 btn-success">Ver todas</a><br><br>
          <div class="col-md-12">         
-          
-           @yield('aside')
-               <!--aside peliculas calificadas-->
+          <a href="{{url('/ver_todas')}}"><img src="{{ asset('img/aside2.png')}}"  class="img-thumbnail"></a>
+           
 
       </div>
          
@@ -235,5 +229,28 @@
     
     <script src="{{ asset('plugins/bootstrap/js/jquery-3.0.0.min.js')}}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    
+  <script>
+    $(document).ready(function(){
+
+         $("#formRegistro").submit(function(){
+
+            var inputs = document.querySelectorAll("input[type='text'],input[type='password']");
+               for(var i=0; i < inputs.length;i++){
+                   if($(inputs[i]).val()==""){
+                       $(inputs[i]).css("border","2px solid red").attr("placeholder","campo obligatorio");
+                       return false;
+                   }
+               };
+
+
+
+        })
+
+     })
+  </script>
+
+
+
 </body>
 </html>

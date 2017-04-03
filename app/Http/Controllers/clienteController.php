@@ -17,7 +17,7 @@ class clienteController extends Controller
     		$id_cliente = $_POST['id_cliente'];
 
             
-
+                
 
     		session()->put('sesionCliente', $nombre);
 
@@ -25,10 +25,10 @@ class clienteController extends Controller
 
     	User::create($request->all());
 
-    	$inicio = new Controller;
+    	
 
 
-    return $inicio->index();
+    return back();
      }
 
 public function cerrarSesion(){
@@ -37,10 +37,10 @@ public function cerrarSesion(){
     
 
 
-	$inicio = new Controller;
+	
 
 
-    return $inicio->index();
+    return back();
 }
 
 }

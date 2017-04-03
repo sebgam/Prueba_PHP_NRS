@@ -15,7 +15,7 @@
 
 //----------rutas controlador principal---
 Route::get('/', 'Controller@index');
-Route::get('/destacadas', 'Controller@destacada');
+Route::get('/destacadas', 'Controller@ver_todas');
 Route::get('/comedia', 'Controller@comedia');
 Route::get('/terror', 'Controller@terror');
 Route::get('/accion', 'Controller@accion');
@@ -39,3 +39,4 @@ Route::get('{titulo}/cambiar/', [
 	'uses' => 'valoracionController@cambiar'
 	]);
 
+Route::post('/actualizar', 'valoracionController@actualizar');
